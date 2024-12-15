@@ -16,21 +16,18 @@ const CryptoHistory = ({ items }) => {
         </thead>
 
         <tbody>
-          <tr className={style.tr}>
-            <td className={style.td}>1</td>
-            <td className={style.td}>3190</td>
-            <td className={style.td}>0.24843</td>
-            <td className={style.td}>{format}</td>
-          </tr>
-          <tr className={style.tr}>
-            <td className={style.td}>2</td>
-            <td className={style.td}>3195</td>
-            <td className={style.td}>0.088</td>
-            <td className={style.td}>{format}</td>
-          </tr>
+          {items.map((item, index) => {
+            return (
+            <tr className={style.tr} key={item.id}>
+                <td className={style.td}>{index + 1 }</td>
+              <td className={style.td}>{item.price}</td>
+              <td className={style.td}>{item.amount}</td>
+              <td className={style.td}>{format(item.date, 'Pp')}</td>
+            </tr>
+            )
+          })}
         </tbody>
       </table>
-      ```{' '}
     </>
   );
 };
